@@ -18,9 +18,4 @@ public class Day1Test {
     public void tearDown() throws Exception {
 
     }
-
-    @Test
-    public void tesTravelDirection() throws Exception {
-
-    }
 }

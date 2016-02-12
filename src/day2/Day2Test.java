@@ -34,11 +34,8 @@ public class Day2Test {
     public void testCalculate() throws Exception {
         String [] boxDimensions = {"2", "3", "4"};
         int actual = day2.calculatePaperNeeded(boxDimensions);
-
-        assertEquals(502, actual);
-
         assertEquals(50, actual);
-
+        //this will be the final test that I try
     }
 
     @Test

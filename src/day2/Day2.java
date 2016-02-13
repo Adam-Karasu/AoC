@@ -1,15 +1,13 @@
 package day2;
 
+import java.awt.image.AreaAveragingScaleFilter;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * TODO when calculating the ribbon length needed, only use the two smallest numbers
- * TODO currently the first two numbers in the array are bing used causing the answer to be too big
- * <p>
- * TODO update the documentation on calculatePaperNeeded(String e) to reflect the above need
- * <p>
  * Created by murad on 11/02/16.
  */
 public class Day2 {
@@ -22,8 +20,9 @@ public class Day2 {
         System.out.println(readFile());
     }
 
-    public String[] splitDataOnLine(String dataLine) {
-        String[] test = dataLine.split("x");
+    public List<String> splitDataOnLine(String dataLine) {
+        List<String> test = new ArrayList<>();
+        test.add(dataLine.split("x"));
         return test;
     }
 
@@ -32,6 +31,9 @@ public class Day2 {
      * example -
      * 2x3x4
      * 2*6 + 2*12 + 2*8 = 52
+     * 52 + slack = answer
+     *
+     * slack is the total of multiplying the two smallest sides
      *
      * @param dimensions
      * @return
@@ -48,8 +50,7 @@ public class Day2 {
 
     /**
      * finds the two smallest numbers out of the dimensions given
-     * used to find the length of ribbon needed for bow
-     * http://www.codinghelmet.com/?path=exercises/two-smallest
+     * used to find the length of paper needed for wrapping
      *
      * @param
      * @return
@@ -76,14 +77,15 @@ public class Day2 {
         return twoSmallestDimensions;
     }
 
-    public int readFile() {
+    public List<String> readFile() {
         int totalPaperNeeded = 0;
+        List<String> splitDimensions = new ArrayList<>();
         try {
-            FileReader fileReader = new FileReader("puzzel_inputs/Day2Input");
+            FileReader fileReader = new FileReader("puzzle_inputs/Day2Input");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             String line;
-            String[] splitDimensions;
+
 
             while ((line = bufferedReader.readLine()) != null) {
                 splitDimensions = splitDataOnLine(line);
@@ -93,6 +95,6 @@ public class Day2 {
         } catch (IOException ex) {
             System.out.println(ex);
         }
-        return totalPaperNeeded;
+        return splitDimensions;
     }
 }

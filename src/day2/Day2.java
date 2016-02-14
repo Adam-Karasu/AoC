@@ -1,30 +1,17 @@
 package day2;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import util.regex.MyRegex;
+
 /**
  * Created by murad on 11/02/16.
  */
 public class Day2 {
-
-    public static void main(String[] args) {
-        new Day2();
-    }
-
-    public Day2() {
-        System.out.println(readFile());
-    }
-
-    public List<String> splitDataOnLine(String dataLine) {
-        List<String> test = new ArrayList<>();
-        test.add(dataLine.split("x"));
-        return test;
-    }
 
     /**
      * equation - 2*l*w + 2*w*h + 2*h*l
@@ -32,7 +19,7 @@ public class Day2 {
      * 2x3x4
      * 2*6 + 2*12 + 2*8 = 52
      * 52 + slack = answer
-     *
+     * <p>
      * slack is the total of multiplying the two smallest sides
      *
      * @param dimensions
@@ -44,8 +31,8 @@ public class Day2 {
         int height = Integer.parseInt(dimensions[2]);
 
         int squareFeet = (2 * length * width) + (2 * width * height) + (2 * height * length);
-        int[] twoSmallestSidesLengthForBow = min(width, length, height);
-        return squareFeet + twoSmallestSidesLengthForBow[0] * twoSmallestSidesLengthForBow[1];
+        int[] twoSmallestSidesLengthForSlack = min(length, width, height);
+        return squareFeet + twoSmallestSidesLengthForSlack[0] * twoSmallestSidesLengthForSlack[1];
     }
 
     /**
@@ -77,24 +64,4 @@ public class Day2 {
         return twoSmallestDimensions;
     }
 
-    public List<String> readFile() {
-        int totalPaperNeeded = 0;
-        List<String> splitDimensions = new ArrayList<>();
-        try {
-            FileReader fileReader = new FileReader("puzzle_inputs/Day2Input");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-            String line;
-
-
-            while ((line = bufferedReader.readLine()) != null) {
-                splitDimensions = splitDataOnLine(line);
-                totalPaperNeeded += calculatePaperNeeded(splitDimensions);
-                //System.out.println(Arrays.toString(splitDimensions)); //prints array
-            }
-        } catch (IOException ex) {
-            System.out.println(ex);
-        }
-        return splitDimensions;
-    }
 }

@@ -12,10 +12,12 @@ import static org.junit.Assert.*;
  * Created by murad-1 on 11/02/16.
  */
 public class Day2Test {
+
     Day2 day2;
+
     @Before
     public void setUp() throws Exception {
-         day2 = new Day2();
+        day2 = new Day2();
     }
 
     @After
@@ -24,32 +26,17 @@ public class Day2Test {
     }
 
     @Test
-    public void testSplitInput() throws Exception {
-        String[] expected = {"55","66", "77"};
-        String[] actual = day2.splitDataOnLine("55x66x77");
-        assertArrayEquals(expected, actual);
-    }
-
-    @Test
     public void testCalculate() throws Exception {
-        String [] boxDimensions = {"2", "3", "4"};
+        String[] boxDimensions = {"2", "3", "4"};
         int actual = day2.calculatePaperNeeded(boxDimensions);
-        assertEquals(50, actual);
-        //this will be the final test that I try
-        //this is last test until tonight
+        assertEquals(58, actual);
     }
 
     @Test
-    public void testReadAndCalculateAllBoxes() throws Exception {
-
-    }
-
-    @Test
-    public void testFindMinDimensions() throws Exception{
+    public void testFindMinDimensions() throws Exception {
         int expected = 6;
-        int[] minArray = day2.min(2,3,4);
+        int[] minArray = day2.min(2, 3, 1);
         int actual = minArray[0] * minArray[1];
-        System.out.println(Arrays.toString(minArray));
-                assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 }

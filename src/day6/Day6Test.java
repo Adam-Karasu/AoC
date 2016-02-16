@@ -40,13 +40,13 @@ public class Day6Test {
 
     @Test
     public void testUnpack() {
-        String[] test = {"Turn on", "2", "5", "6","8"};
+        String[] test = {"Turn on", "2", "5", "6", "8"};
         day6.releaseInstructions(test);
     }
 
     @Test
-    public void testInstructionAccess(){
-     instruction.getFirstPoint().getX();
+    public void testInstructionAccess() {
+        instruction.getFirstPoint().getX();
         System.out.println(instruction.getFirstPoint().getX());
     }
 }

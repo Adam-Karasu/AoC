@@ -29,7 +29,7 @@ public class LightGrid {
     }
 
     public void turnOff(int row, int col) {
-        if (lightGrid[row][col]>0){
+        if (lightGrid[row][col] > 0) {
             --lightGrid[row][col];
         }
 
@@ -40,12 +40,22 @@ public class LightGrid {
     }
 
     public int countLights() {
-int total = 0;
+        int total = 0;
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 total += lightGrid[i][j];
             }
         }
         return total;
+    }
+
+    public void print() {
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+
+                System.out.print(lightGrid[i][j] + "  ");
+            }
+            System.out.println();
+        }
     }
 }

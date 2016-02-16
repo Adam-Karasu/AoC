@@ -45,16 +45,6 @@ public class Day6 {
                 break;
         }
     }
-
-    public void print() {
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-
-                System.out.print(lightGrid.getLightGrid()[i][j] + "  ");
-            }
-            System.out.println();
-        }
-    }
 }
 
 

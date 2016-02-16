@@ -27,7 +27,7 @@ public class MyRegexTest {
     public void testMatch(){
         String actual = "";
         String expected  = "333333";
-        String[] result = regex.day2RegexStringArray("33x33x33");
+        String[] result = regex.autoSort("33x33x33");
         actual = result[0] + result[1] + result[2];
         assertEquals(expected, actual);
     }

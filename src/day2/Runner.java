@@ -28,7 +28,7 @@ public class Runner {
         int answer = 0;
         for (String item :
                 myReader.readFile("puzzle_inputs/Day2Input")) {
-            answer += day2.calculatePaperNeeded(myRegex.day2RegexStringArray(item));
+            answer += day2.calculatePaperNeeded(myRegex.autoSort(item));
         }
         System.out.println(answer);
     }

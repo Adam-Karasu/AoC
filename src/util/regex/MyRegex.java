@@ -7,8 +7,8 @@ import java.util.regex.Pattern;
  * TODO alter output (notes given at source of this todo)
  * - give better name
  * - create an output array that can have its sizse set at runtime (constructor variable)
- * -
- * <p>
+ * TODO stop instantiating new String array on each autoSort(String s ) call
+ *
  * Created by murad on 13/02/16.
  */
 public class MyRegex {
@@ -19,27 +19,37 @@ public class MyRegex {
         this.expression = Pattern.compile(expression);
     }
 
-    public String[] day2RegexStringArray(String toMatch) {
-        String[] day2output = new String[3];
+    /**
+     * for each line in a document add salient data (based on the regex you provide)
+     * to a string array. this array is recreated each time this methods is called - find a better
+     * solution
+     *
+     * @param toMatch
+     * @return
+     */
+    public String[] autoSort(String toMatch) {
+        String[] outputArray;
         Matcher matcher = expression.matcher(toMatch);
-        if (matcher.find()) {
-            day2output[0] = matcher.group(1);
-            day2output[1] = matcher.group(2);
-            day2output[2] = matcher.group(3);
+        int size = findOutPutSize(matcher);
+        outputArray = new String[size];
+
+        if (matcher.matches()) {
+
+            for (int i = 0; i < size; i++) {
+                /* + 1 is added to grab the correct group, instead of taking whole pattern
+                (matcher.group(0) = whole pattern) only groups 1 and upwards is taken
+                */
+                outputArray[i] = matcher.group(i + 1);
+            }
         }
-        return day2output;
+        return outputArray;
     }
 
-    public String[] day6StringDirection(String toMatch){
-        String[] day6output = new String[6];
-        Matcher matcher = expression.matcher(toMatch);
-        if(matcher.find()){
-            day6output[0] = matcher.group(1);
-            day6output[1] = matcher.group(2);
-            day6output[2] = matcher.group(3);
-            day6output[3] = matcher.group(4);
-            day6output[4] = matcher.group(5);
+    public int findOutPutSize(Matcher matcher) {
+        int size = 0;
+        if (matcher.matches()) {
+            size = matcher.groupCount();
         }
-        return day6output;
+        return size;
     }
 }

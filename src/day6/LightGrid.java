@@ -32,7 +32,6 @@ public class LightGrid {
         if (lightGrid[row][col] > 0) {
             --lightGrid[row][col];
         }
-
     }
 
     public void toggle(int row, int col) {

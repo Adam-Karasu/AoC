@@ -8,20 +8,5 @@ import java.util.List;
  */
 public class Day3 {
 
-    List<Character> directionsList = new ArrayList<>();
-
-   /* public  printDirection(char direction){
-
-        switch(direction){
-            case '^' : //
-        }
-
-
-        return
-    }*/
-}
-
-class DataStructure {
-
 
 }

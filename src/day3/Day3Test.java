@@ -3,22 +3,20 @@ package day3;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import java.util.ArrayList;
-import java.util.List;
-import util.reader.*;
+import util.regex.MyRegex;
+
+import static org.junit.Assert.*;
 
 /**
- * Created by murad on 15/02/16.
+ * Created by murad-1 on 17/02/16.
  */
 public class Day3Test {
 
-    List<Character> directions;
-    Day3 day3;
+    MyRegex myRegex;
 
     @Before
     public void setUp() throws Exception {
-        directions = new ArrayList<>();
-       // day3 = new Day3();
+myRegex = new MyRegex("[^<>v]");
     }
 
     @After
@@ -27,7 +25,8 @@ public class Day3Test {
     }
 
     @Test
-    public void testUnpack() throws Exception {
-       // directions = day3.printDirection();
+    public void testTest() throws Exception {
+
+
     }
 }

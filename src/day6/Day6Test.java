@@ -12,14 +12,12 @@ public class Day6Test {
     Day6 day6;
     LightGrid lightGrid;
     int lightGridSize;
-    Instruction instruction;
 
     @Before
     public void setUp() throws Exception {
         lightGrid = new LightGrid(10);
         day6 = new Day6(lightGrid);
         lightGridSize = lightGrid.getLightGrid().length;
-        instruction = new Instruction();
     }
 
     @After
@@ -46,7 +44,6 @@ public class Day6Test {
 
     @Test
     public void testInstructionAccess() {
-        instruction.getFirstPoint().getX();
-        System.out.println(instruction.getFirstPoint().getX());
+
     }
 }

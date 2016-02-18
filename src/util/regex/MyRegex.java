@@ -37,14 +37,14 @@ public class MyRegex {
 
             for (int i = 0; i < size; i++) {
                 /* + 1 is added to grab the correct group, instead of taking whole pattern
-                (matcher.group(0) = whole pattern) only groups 1 and upwards is taken
-                */
+                (matcher.group(0) = whole pattern) only groups 1 and upwards is taken */
                 outputArray[i] = matcher.group(i + 1);
             }
         }
         return outputArray;
     }
 
+    //consider changing the name of this to findNumberOfTokens(), to improve clarity
     public int findOutPutSize(Matcher matcher) {
         int size = 0;
         if (matcher.matches()) {

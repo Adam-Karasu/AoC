@@ -23,7 +23,7 @@ public class Runner6 {
         lightGrid = new LightGrid(1000);
         day6 = new Day6(lightGrid);
 
-        for (String item : myReader.readFile("puzzle_inputs/Day6Input")
+        for (String item : myReader.readFileByLine("puzzle_inputs/Day6Input")
                 ) {
             day6.releaseInstructions(myRegex.autoSort(item));
         }

@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class MyReader {
 
-    public List<String> readFile(String inputLocation) {
+    public List<String> readFileByLine(String inputLocation) {
 
         List<String> splitDimensions = new ArrayList<>();
         try {

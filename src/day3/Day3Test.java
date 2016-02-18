@@ -16,7 +16,7 @@ public class Day3Test {
 
     @Before
     public void setUp() throws Exception {
-myRegex = new MyRegex("[^<>v]");
+        myRegex = new MyRegex("[^<>v]");
     }
 
     @After
@@ -28,5 +28,10 @@ myRegex = new MyRegex("[^<>v]");
     public void testTest() throws Exception {
 
 
+    }
+
+    @Test
+    public void unpack() throws Exception {
+        //will not use RegEx. Unpack using split()
     }
 }

@@ -23,7 +23,7 @@ public class Day3 {
     }
 
     public static void main(String[] args) {
-        test("test", 1);
+        test("Day8Test", 1);
         test("test2", 1);
         System.out.println(positionsVistited.toString());
 

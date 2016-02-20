@@ -17,10 +17,13 @@ public class Runner {
 
     public void setUp() {
 
+
         for (String item : myReader.readFileByLine("puzzle_inputs/Day8Input")
                 ) {
             System.out.println(day8.handelEscapeSequences(item));
         }
+
+        System.out.println( day8.difference());
     }
 
     public static void main(String[] args){

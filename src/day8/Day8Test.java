@@ -3,6 +3,7 @@ package day8;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import util.reader.MyReader;
 
 import static org.junit.Assert.*;
 
@@ -12,9 +13,11 @@ import static org.junit.Assert.*;
 public class Day8Test {
 
     Day8 test;
+    MyReader myReader;
 
     @Before
     public void setUp() throws Exception {
+        myReader = new MyReader();
         test = new Day8();
     }
 
@@ -78,5 +81,14 @@ public class Day8Test {
         String actual = test.handelEscapeSequences("\"a\\\\bc\\xe3def\\xff\"ghi\"");
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testAll() throws Exception {
+        for (String item : myReader.readFileByLine("puzzle_inputs/Day8Test")
+             ) {
+            test.handelEscapeSequences(item);
+        }
+        System.out.println("Answer = " + test.difference());
     }
 }

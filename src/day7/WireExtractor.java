@@ -23,10 +23,10 @@ public class WireExtractor {
 
         if (Character.isDigit(instruction.charAt(0))) {
             wires.put(instructionSplit[2], Integer.parseInt(instructionSplit[0]));
-break  ;
+//break  ;
         }
 
-        if (instructionSplit)
+       // if (instructionSplit)
 
         //if first char is digit
         //else if lower case

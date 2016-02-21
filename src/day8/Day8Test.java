@@ -77,10 +77,23 @@ public class Day8Test {
 
     @Test
     public void testHandelEscapeSequences() throws Exception {
-        String expected = "a\\bc@def@\"ghi";
-        String actual = test.handelEscapeSequences("\"a\\\\bc\\xe3def\\xff\"ghi\"");
+        //String expected = "a\\bc@def@\"ghi";
+        String expected = "n\\c";
+        //String actual = test.handelEscapeSequences("\"a\\\\bc\\xe3def\\xff\"ghi\"");
+
+        String actual = test.handelEscapeSequences("\"n\\\\c\"");
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void singleTest() throws Exception {
+        String expected = "34612";
+        String actual = test.removeLeadingAndTrailingQuotes("\"46\"\\x8e\\\"");
+        String actual2 = test.replaceSingleCharHexCode(actual);
+        String actual3 = test.escapeDouble(actual2);
+        String actual4 = test.escapeDoubleQuote(actual3);
+        assertEquals(expected.length(), actual4.length());
     }
 
     @Test

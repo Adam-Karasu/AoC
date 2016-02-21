@@ -10,17 +10,17 @@ public class Day8 {
     String escapeHexadecimal = "(\\\\x[a-f0-9]{2})";
 
     public String replaceSingleCharHexCode(String str){
-        String ans = str.replaceAll(escapeHexadecimal, "@");
+        String ans = str.replaceAll(escapeHexadecimal, "1");
         return ans;
     }
 
     public String escapeDouble(String str) {
-        String ans = str.replace("\\\\", "\\");
+        String ans = str.replace("\\\\", "2");
         return ans;
     }
 
     public String escapeDoubleQuote(String str) {
-        String ans = str.replace("\\\"", "-");
+        String ans = str.replace("\\\"", "3");
 
         return ans;
     }
@@ -35,10 +35,15 @@ public class Day8 {
 
         oriLength += str.length();
         String a1 = removeLeadingAndTrailingQuotes(str);
-        String a2 = replaceSingleCharHexCode(a1);
-        String a3 = escapeDouble(a2);
-        String answer = escapeDoubleQuote(a3);
+
+        String a2 = escapeDouble(a1);
+
+        String a3 = escapeDoubleQuote(a2);
+        String answer = replaceSingleCharHexCode(a3);
         newLength += answer.length();
+
+        System.out.println(str.length());
+        System.out.println(answer.length());
 
         return answer;
     }

@@ -29,6 +29,7 @@ public class Runner {
         }
 
         System.out.println(day8.difference());
+        System.out.println(day8.test());
     }
 
     public static void main(String[] args) {

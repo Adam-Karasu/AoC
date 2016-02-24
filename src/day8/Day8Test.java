@@ -104,4 +104,21 @@ public class Day8Test {
         }
         System.out.println("Answer = " + test.difference());
     }
+
+    @Test
+    public void testReveseCount() throws Exception {
+         test.setiOri("aaa\"aaa");
+        String a1 = test.removeLeadingAndTrailingQuotes("aaa\"aaa");
+
+        String a2 = test.escapeDouble(a1);
+
+        //String a3 = test.escapeDoubleQuote(a2);
+        //String answer = test.replaceSingleCharHexCode(a3);
+
+        System.out.println("\"aaa\"aaa\"");
+        System.out.println(test.iOri);
+
+       // test.escapeDoubleQuote("aaa\\\"aaa");
+        System.out.println(test.test());
+    }
 }

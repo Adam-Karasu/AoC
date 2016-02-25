@@ -7,6 +7,9 @@ public class Day8 {
 
     int oriLength;
     int newLength;
+
+    int oriLengthP2;
+    int newLengthP2;
     String escapeHexadecimal = "(\\\\x[a-f0-9]{2})";
     String doubleQoute = "(\")";
     int iOri;
@@ -26,16 +29,21 @@ public class Day8 {
         iOri = str.length() + 2;
     }
 
-    public String encodeHex(String str) {
-        return str.replaceAll(escapeHexadecimal, "\\\\\\\\xff");
-    }
+   public String encodeBackSlash(String str){
+       return str.replace("\\", "\\\\");
+   }
 
     public String encodeDouble(String str){
-        return str.replace(doubleQoute, "||");
+        return str.replace("\"", "\\\"");
     }
 
     public int getT() {
         return t;
+    }
+
+    public String addLeadingAndTrailingQuotesEcode(String str){
+        String answer = "\"" + str + "\"";
+        return answer;
     }
 
     public String escapeDouble(String str) {
@@ -61,9 +69,7 @@ public class Day8 {
 
         oriLength += str.length();
         String a1 = removeLeadingAndTrailingQuotes(str);
-
         String a2 = escapeDouble(a1);
-
         String a3 = escapeDoubleQuote(a2);
         String answer = replaceSingleCharHexCode(a3);
         newLength += answer.length();
@@ -71,6 +77,28 @@ public class Day8 {
         System.out.println(str.length());
         System.out.println(answer.length());
 
+        return answer;
+    }
+
+    public String encodeP2(String str) {
+
+        oriLengthP2 += str.length();
+        String a1 = addLeadingAndTrailingQuotesEcode(str);
+        String a2 = encodeBackSlash(a1);
+        String a3 = encodeDouble(a2);
+
+        newLengthP2 += a3.length();
+
+        System.out.println(str.length());
+        System.out.println(a3.length());
+
+        return a3;
+    }
+
+    public int differenceP2() {
+
+
+        int answer =  newLengthP2-oriLengthP2 ;
         return answer;
     }
 

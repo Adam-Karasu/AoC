@@ -26,10 +26,11 @@ public class Runner {
         for (String item : myReader.readFileByLine("puzzle_inputs/Day8Input")
                 ) {
             System.out.println( day8.handelEscapeSequences(item));
+            day8.encodeP2(item);
         }
 
         System.out.println(day8.difference());
-        System.out.println(day8.test());
+        System.out.println(day8.differenceP2()  + "-------------------");
     }
 
     public static void main(String[] args) {

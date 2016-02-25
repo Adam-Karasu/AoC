@@ -108,29 +108,31 @@ public class Day8Test {
     @Test
     public void testReveseCount() throws Exception {
         test.setiOri("aaa\"aaa");
-        String a1 = test.removeLeadingAndTrailingQuotes("aaa\"aaa");
+      String expected = "\"\\\"abc\"\"";
 
-        String a2 = test.escapeDouble(a1);
+        String actual = test.addLeadingAndTrailingQuotesEcode("abc");
+        String actual1 = test.encodeBackSlash(actual);
+        String actual2 = test.encodeDouble(actual);
 
-        //String a3 = test.escapeDoubleQuote(a2);
-        //String answer = test.replaceSingleCharHexCode(a3);
+        assertEquals(expected, actual2);
 
-        System.out.println("\"aaa\"aaa\"");
+        System.out.println("\"\"aaa\"aaa\"\"");
         System.out.println(test.iOri);
 
         // test.escapeDoubleQuote("aaa\\\"aaa");
         System.out.println(test.test());
     }
 
-    @Test
+   /* @Test
     public void testHexOut() throws Exception {
         int expected = 5;
         String sttest = "\\xe3\"";
+
         String firstActual = test.encodeHex(sttest);
         int actual = test.encodeDouble(firstActual).length();
         System.out.println(test.encodeHex(sttest) + " ---" +  "\\xee");
 
         assertEquals(expected, actual);
         //this should return true
-    }
+    }*/
 }

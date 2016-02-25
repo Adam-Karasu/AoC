@@ -5,27 +5,38 @@ package day8;
  */
 public class Day8 {
 
-    String ggg;
     int oriLength;
     int newLength;
     String escapeHexadecimal = "(\\\\x[a-f0-9]{2})";
+    String doubleQoute = "(\")";
     int iOri;
-    int t;
+    int t ;
 
-    public String replaceSingleCharHexCode(String str){
+    public String replaceSingleCharHexCode(String str) {
         String ans = str.replaceAll(escapeHexadecimal, "1");
-        t +=1;
+        t += 1;
         return ans;
     }
 
-    public int test(){
-
-        return (t +iOri) - iOri;
+    public int test() {
+        return (t + iOri) - iOri;
     }
 
-    public void setiOri(String str){iOri = str.length() + 2;
-    ggg = str;}
+    public void setiOri(String str) {
+        iOri = str.length() + 2;
+    }
 
+    public String encodeHex(String str) {
+        return str.replaceAll(escapeHexadecimal, "\\\\\\\\xff");
+    }
+
+    public String encodeDouble(String str){
+        return str.replace(doubleQoute, "||");
+    }
+
+    public int getT() {
+        return t;
+    }
 
     public String escapeDouble(String str) {
         String ans = str.replace("\\\\", "2");
@@ -35,7 +46,7 @@ public class Day8 {
 
     public String escapeDoubleQuote(String str) {
         String ans = str.replace("\\\"", "3");
-        t += 3 ;
+        t += 3;
         return ans;
     }
 
@@ -46,7 +57,7 @@ public class Day8 {
         return ans1;
     }
 
-    public String handelEscapeSequences(String str){
+    public String handelEscapeSequences(String str) {
 
         oriLength += str.length();
         String a1 = removeLeadingAndTrailingQuotes(str);
@@ -63,9 +74,9 @@ public class Day8 {
         return answer;
     }
 
-    public int difference(){
+    public int difference() {
 
-        System.out.println(oriLength );
+        System.out.println(oriLength);
         System.out.println(newLength);
         int answer = oriLength - newLength;
         return answer;

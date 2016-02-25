@@ -99,7 +99,7 @@ public class Day8Test {
     @Test
     public void testAll() throws Exception {
         for (String item : myReader.readFileByLine("puzzle_inputs/Day8Test")
-             ) {
+                ) {
             test.handelEscapeSequences(item);
         }
         System.out.println("Answer = " + test.difference());
@@ -107,7 +107,7 @@ public class Day8Test {
 
     @Test
     public void testReveseCount() throws Exception {
-         test.setiOri("aaa\"aaa");
+        test.setiOri("aaa\"aaa");
         String a1 = test.removeLeadingAndTrailingQuotes("aaa\"aaa");
 
         String a2 = test.escapeDouble(a1);
@@ -118,7 +118,19 @@ public class Day8Test {
         System.out.println("\"aaa\"aaa\"");
         System.out.println(test.iOri);
 
-       // test.escapeDoubleQuote("aaa\\\"aaa");
+        // test.escapeDoubleQuote("aaa\\\"aaa");
         System.out.println(test.test());
+    }
+
+    @Test
+    public void testHexOut() throws Exception {
+        int expected = 5;
+        String sttest = "\\xe3\"";
+        String firstActual = test.encodeHex(sttest);
+        int actual = test.encodeDouble(firstActual).length();
+        System.out.println(test.encodeHex(sttest) + " ---" +  "\\xee");
+
+        assertEquals(expected, actual);
+        //this should return true
     }
 }

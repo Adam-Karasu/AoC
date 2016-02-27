@@ -5,12 +5,14 @@ package day8;
  */
 public class Day8 {
 
+    int p2oriLeng;
+    int p2newLeng;
     int oriLength;
     int newLength;
     String escapeHexadecimal = "(\\\\x[a-f0-9]{2})";
     String doubleQoute = "(\")";
     int iOri;
-    int t ;
+    int t;
 
     public String replaceSingleCharHexCode(String str) {
         String ans = str.replaceAll(escapeHexadecimal, "1");
@@ -26,12 +28,41 @@ public class Day8 {
         iOri = str.length() + 2;
     }
 
+    public String begingAndEnd(String str) {
+        return "\"\\\"" + str + "\\\"\"";
+    }
+
+    enum  encode{
+
+    }
+    public String part2(String str) {
+
+        p2oriLeng += (str.toCharArray().length + 2);
+        String ans2 = encodeDouble(str);
+        String answer = encodeQuote(ans2);
+        String ans1 = begingAndEnd(answer);
+        //each special character has to be counted as the sum of all its parts not just
+        //the special charater its selg
+        p2newLeng += ans1.length();
+        return ans1;
+    }
+
     public String encodeHex(String str) {
         return str.replaceAll(escapeHexadecimal, "\\\\\\\\xff");
     }
 
-    public String encodeDouble(String str){
-        return str.replace(doubleQoute, "||");
+    public String encodeDouble(String str) {
+        return str.replace("\\" , "\\\\");
+    }
+
+    public int diffP2() {
+        return p2newLeng - p2oriLeng;
+    }
+
+    public String encodeQuote(String str) {
+
+        //add one here for every call to this method
+        return str.replace("\"","\\\\\\\"");
     }
 
     public int getT() {

@@ -5,6 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 import util.reader.MyReader;
 
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+
 import static org.junit.Assert.*;
 
 /**
@@ -128,9 +131,53 @@ public class Day8Test {
         String sttest = "\\xe3\"";
         String firstActual = test.encodeHex(sttest);
         int actual = test.encodeDouble(firstActual).length();
-        System.out.println(test.encodeHex(sttest) + " ---" +  "\\xee");
+        System.out.println(test.encodeHex(sttest) + " ---" + "\\xee");
 
         assertEquals(expected, actual);
         //this should return true
+    }
+
+    @Test
+    public void testLeadingTrailing() throws Exception {
+        String expected = "\"\"";
+
+        String actual = test.begingAndEnd("");
+        System.out.println(actual);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testBackSlahs() throws Exception {
+        String expected = "\\\\";
+
+        String acutal = test.encodeDouble("\\");
+
+        System.out.println(acutal);
+        assertEquals(expected, acutal);
+    }
+
+    @Test
+    public void testDoubleQuote() throws Exception {
+        String expected = "\\\"";
+        String actual = test.encodeQuote("\"");
+
+        System.out.println(actual);
+        assertEquals(expected, actual);
+    }
+
+
+
+    @Test
+    public void testPart2() throws Exception {
+
+       String testString = "aaa\"aaa";
+        String expected = "";
+        String acutal = test.part2(testString);
+
+        System.out.println("Length(old) = " + (testString.length() + 2));
+        System.out.println(acutal + " : Length(new) = " + acutal.length());
+
+        assertEquals(expected, acutal);
+        //System.out.println("\"");
     }
 }
